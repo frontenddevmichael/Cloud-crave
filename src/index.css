@@ -1,0 +1,202 @@
+/* ================================================================
+   CLOUDCRAVE SOLUTIONS v2 — DESIGN SYSTEM
+   Direction: Cinematic editorial × African Tech × Electric blue
+   Fonts: Cabinet Grotesk (display) + General Sans (body)
+   Theme: Light mode, electric blue primary, white/off-white base
+   ================================================================ */
+
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,200,300,400,500,700,800,900&f[]=general-sans@300,400,500,600,700&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* ── Brand Blues ── */
+  --blue: #0057FF;
+  /* electric primary */
+  --blue-deep: #0040CC;
+  /* hover/pressed    */
+  --blue-vivid: #1A6AFF;
+  /* lighter variant  */
+  --blue-900: #001AFF;
+  /* ultra-deep       */
+  --blue-50: #EBF1FF;
+  /* tint bg          */
+  --blue-100: #C8DAFF;
+  /* mid tint         */
+  --blue-mist: #F0F5FF;
+  /* page bg tint     */
+
+  /* ── Neutrals ── */
+  --white: #FFFFFF;
+  --bg: #F8F9FF;
+  /* white + blue undertone */
+  --bg-2: #EFF2FF;
+  --bg-card: #FFFFFF;
+  --ink: #06090F;
+  /* near-black + blue depth */
+  --ink-2: #3D4660;
+  --ink-3: #7B84A3;
+  --ink-4: #B0B8D4;
+  --border: #DDE3F5;
+  --border-strong: #C0CAED;
+
+  /* ── Accent ── */
+  --gold: #FFB800;
+  /* single warm accent */
+  --gold-light: #FFF4CC;
+
+  /* ── Dark band ── */
+  --dark: #06090F;
+  --dark-2: #0D1426;
+  --dark-3: #1A2140;
+
+  /* ── Typography ── */
+  --font-display: 'Cabinet Grotesk', 'Helvetica Neue', sans-serif;
+  --font-body: 'General Sans', 'Helvetica Neue', sans-serif;
+
+  /* ── Sizes ── */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 2rem;
+  --fs-4xl: 2.75rem;
+  --fs-5xl: 3.75rem;
+  --fs-6xl: 5.5rem;
+  --fs-huge: clamp(4rem, 11vw, 9rem);
+  --fs-titan: clamp(6rem, 16vw, 14rem);
+
+  /* ── Spacing ── */
+  --pad-x: clamp(1.5rem, 6vw, 7rem);
+  --pad-section: clamp(5rem, 10vw, 10rem);
+
+  /* ── Radius ── */
+  --r-sm: 8px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 36px;
+  --r-2xl: 48px;
+  --r-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 4px rgba(0, 57, 255, 0.06), 0 1px 2px rgba(6, 9, 15, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 57, 255, 0.10), 0 2px 6px rgba(6, 9, 15, 0.06);
+  --shadow-lg: 0 12px 48px rgba(0, 57, 255, 0.14), 0 4px 12px rgba(6, 9, 15, 0.08);
+  --shadow-xl: 0 24px 80px rgba(0, 57, 255, 0.18), 0 8px 24px rgba(6, 9, 15, 0.10);
+  --shadow-blue: 0 8px 32px rgba(0, 87, 255, 0.35);
+  --shadow-gold: 0 8px 24px rgba(255, 184, 0, 0.30);
+
+  /* ── Motion ── */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 150ms;
+  --t-base: 280ms;
+  --t-slow: 480ms;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+/* ── Utility: section eyebrow label ── */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.5rem;
+}
+
+.label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--blue);
+  border-radius: 2px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue-100);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue);
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--blue-100);
+  color: var(--dark);
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

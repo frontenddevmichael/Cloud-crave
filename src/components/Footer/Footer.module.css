@@ -1,0 +1,247 @@
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+}
+
+/* ── PARTNERS STRIP ── */
+.partnersStrip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 3rem var(--pad-x);
+
+}
+
+.partnersLabel {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
+.partnerLogos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Placeholder pills — replace with <img> tags once real logos available */
+.partnerPill {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--ink-3);
+    background: var(--bg);
+    border: 1.5px solid var(--border-strong);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--r-full);
+    letter-spacing: 0.02em;
+    transition: all var(--t-fast);
+}
+
+.partnerPill:hover {
+    color: var(--ink);
+    border-color: 1.5 solid var(--border);
+}
+
+/* Real logo images — uncomment when ready:
+.partnerLogos img {
+  width: 120px;
+  height: 48px;
+  object-fit: contain;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: opacity var(--t-fast), filter var(--t-fast);
+}
+.partnerLogos img:hover {
+  opacity: 1;
+  filter: none;
+}
+*/
+
+/* ── MAIN GRID ── */
+.main {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem var(--pad-x);
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ── COMPANY COLUMN ── */
+.companyCol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.logoWrap {
+    display: inline-block;
+}
+
+.logo {
+    width: 160px;
+    height: auto;
+}
+
+.companyCopy {
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 380px;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-style: normal;
+}
+
+.contactInfo a,
+.contactInfo span {
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+    text-decoration: none;
+    line-height: 1.55;
+    transition: color var(--t-fast);
+}
+
+.contactInfo a:hover {
+    color: var(--teal);
+}
+
+/* Social icons */
+.socials {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-md);
+    color: var(--ink-3);
+    font-size: 0.875rem;
+    transition: all var(--t-base);
+}
+
+.socialIcon:hover {
+    background: var(--teal-light);
+    border-color: var(--teal-mid);
+    color: var(--teal);
+    transform: translateY(-2px);
+}
+
+/* ── LINK COLUMNS ── */
+.linkCol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.colHeading {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+}
+
+.link {
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color var(--t-fast);
+}
+
+.link:hover {
+    color: var(--teal);
+}
+
+/* ── COPYRIGHT ── */
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem var(--pad-x);
+    border-top: 1px solid var(--border);
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.copyright p {
+    font-size: var(--fs-xs);
+    color: var(--ink-3);
+    margin: 0;
+}
+
+.pride {
+    font-weight: 600;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+    .main {
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .linkCol:last-child {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        padding: 3rem var(--pad-x);
+    }
+
+    .companyCol {
+        grid-column: span 2;
+    }
+
+    .partnersStrip {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .copyright {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .companyCol {
+        grid-column: span 1;
+    }
+
+    .logo {
+        width: 140px;
+    }
+}

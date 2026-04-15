@@ -1,0 +1,1328 @@
+
+/* ── SHARED ── */
+.sectionHeading {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+    color: var(--ink);
+    margin-bottom: 0;
+}
+
+.sectionHeadingLight {
+    color: white;
+}
+
+.headingBlue {
+    color: var(--blue);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   HERO — white background, airy cloud scene
+──────────────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    padding: 0 var(--pad-x);
+    overflow: hidden;
+}
+
+/* ── Dot grid texture on white bg ── */
+.heroDotGrid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(0, 85, 255, 0.229) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* ── Soft blue glow behind the cloud scene ── */
+.bgGlow {
+    position: absolute;
+    right: -4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 680px;
+    height: 680px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 87, 255, 0.07) 0%, rgba(0, 87, 255, 0.02) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ── Geometric accents ── */
+.heroAccents {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.accentRing1 {
+    position: absolute;
+    top: -14%;
+    left: -6%;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 87, 255, 0.05);
+}
+
+.accentRing2 {
+    position: absolute;
+    bottom: -18%;
+    left: 18%;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 184, 0, 0.07);
+}
+
+.accentDot1 {
+    position: absolute;
+    top: 24%;
+    left: 5%;
+    width: 5px;
+    height: 5px;
+    background: var(--blue);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: dotFloat 6s ease-in-out infinite;
+}
+
+.accentDot2 {
+    position: absolute;
+    bottom: 26%;
+    left: 22%;
+    width: 7px;
+    height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.35;
+    animation: dotFloat 8s ease-in-out infinite 1.4s;
+}
+
+.accentLine {
+    position: absolute;
+    top: 0;
+    left: 38%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 87, 255, 0.06), transparent);
+}
+
+@keyframes dotFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-16px);
+    }
+}
+
+/* ── Hero content (left column) ── */
+.heroContent {
+    position: relative;
+    z-index: 2;
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+    max-width: 660px;
+    animation: fadeUp 0.8s var(--ease-out) 0.05s both;
+}
+
+.eyebrow {
+    color: var(--blue) !important;
+}
+
+.heroHeading {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 6vw, 5rem);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+    color: var(--ink);
+    margin-bottom: 1.75rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 0.22em;
+    row-gap: 0.06em;
+    width: fit-content;
+}
+
+.hWord {
+    display: block;
+    opacity: 0;
+    font-weight: 300;
+    color: var(--ink);
+    animation: fadeUp 0.8s var(--ease-out) var(--d, 0s) forwards;
+}
+
+.hAccent {
+    display: block;
+    color: var(--blue);
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease-out) var(--d, 0s) forwards;
+}
+
+.hAccentGold {
+    display: block;
+    color: var(--gold);
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease-out) var(--d, 0s) forwards;
+}
+
+.heroClaim {
+    font-size: clamp(0.95rem, 1.6vw, 1.12rem);
+    color: var(--ink-2);
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease-out) var(--d, 0s) forwards;
+}
+
+.heroActions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease-out) var(--d, 0s) forwards;
+}
+
+/* Inline stat strip */
+.heroStats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease-out) var(--d, 0s) forwards;
+}
+
+.heroStat {
+    display: flex;
+    flex-direction: column;
+}
+
+.heroStatNum {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    line-height: 1;
+}
+
+.heroStatLabel {
+    font-size: var(--fs-xs);
+    color: var(--ink-3);
+    margin-top: 0.3rem;
+    letter-spacing: 0.04em;
+}
+
+/* ── Buttons (light versions for white hero) ── */
+.btnBlue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--blue);
+    color: white;
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-weight: 500;
+    border: none;
+    border-radius: var(--r-full);
+    transition: all var(--t-base) var(--ease);
+    letter-spacing: 0.01em;
+}
+
+.btnBlue:hover {
+    background: var(--blue-deep);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-blue);
+}
+
+.btnArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+    font-size: 0.65rem;
+    transition: transform var(--t-base);
+    flex-shrink: 0;
+}
+
+.btnBlue:hover .btnArrow {
+    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.32);
+}
+
+.btnGhost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.8rem;
+    background: var(--bg-card);
+    color: var(--ink-2);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-weight: 500;
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--r-full);
+    transition: all var(--t-base);
+}
+
+.btnGhost:hover {
+    background: var(--blue-100);
+    border-color: var(--blue-100);
+    color: var(--ink);
+    transform: translateY(-5px);
+}
+
+.playBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.52rem;
+    padding-left: 2px;
+    flex-shrink: 0;
+    transition: background var(--t-fast);
+}
+
+.btnGhost:hover .playBtn {
+    background: var(--blue-deep);
+}
+
+
+
+/* ── Tag strip ── */
+.heroTagStrip {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding-right: 1rem;
+    z-index: 3;
+}
+
+.heroTag {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    background: var(--bg-card);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   STATS BAND
+──────────────────────────────────────────────────────────────── */
+.statsBand {
+    position: relative;
+    background: var(--blue);
+    padding: 4rem var(--pad-x);
+    overflow: hidden;
+}
+
+.statsDiag {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(-45deg,
+            transparent, transparent 40px,
+            rgba(255, 255, 255, 0.025) 40px,
+            rgba(255, 255, 255, 0.025) 41px);
+}
+
+.statsBandSvg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.statsGrid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    text-align: center;
+}
+
+.statItem:last-child {
+    border-right: none;
+}
+
+.statNum {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   SERVICES
+──────────────────────────────────────────────────────────────── */
+.servicesSection {
+    padding: var(--pad-section) var(--pad-x);
+    background: var(--bg);
+}
+
+.servicesMasthead {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.btnOutline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--blue);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    border: 2px solid var(--blue);
+    border-radius: var(--r-full);
+    transition: all var(--t-base);
+    white-space: nowrap;
+}
+
+.btnOutline:hover {
+    background: var(--blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-blue);
+}
+
+.btnOutlineLight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--r-full);
+    transition: all var(--t-base);
+    white-space: nowrap;
+}
+
+.btnOutlineLight:hover {
+    background: white;
+    color: var(--ink);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+.servicesTrack {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.serviceCard {
+    position: relative;
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+    transition: all var(--t-base) var(--ease);
+    cursor: default;
+}
+
+.serviceCard:last-child {
+    border-bottom: 1px solid var(--border);
+}
+
+.serviceCard:hover {
+    padding-left: 1.25rem;
+    background: var(--blue-mist);
+    border-radius: var(--r-md);
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+}
+
+.serviceCardNum {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    color: var(--blue-100);
+    line-height: 1;
+    transition: color var(--t-base);
+    user-select: none;
+}
+
+.serviceCard:hover .serviceCardNum {
+    color: var(--blue);
+}
+
+.serviceCardTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 0.375rem;
+}
+
+.serviceCardDesc {
+    font-size: var(--fs-sm);
+    color: var(--ink-3);
+    line-height: 1.6;
+}
+
+.serviceCardBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--border-strong);
+    background: transparent;
+    color: var(--ink-3);
+    font-size: 0.72rem;
+    transition: all var(--t-base) var(--ease-spring);
+}
+
+.serviceCard:hover .serviceCardBtn {
+    border-color: var(--blue);
+    color: white;
+    background: var(--blue);
+    transform: rotate(-45deg);
+    box-shadow: var(--shadow-blue);
+}
+
+.serviceCardAccent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--blue);
+    border-radius: 2px;
+    transition: width var(--t-slow) var(--ease-out);
+}
+
+.serviceCard:hover .serviceCardAccent {
+    width: 100%;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BENTO GRID
+──────────────────────────────────────────────────────────────── */
+.workSection {
+    padding: var(--pad-section) var(--pad-x);
+    background: var(--dark-2);
+}
+
+.workHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.bentoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1.25rem;
+}
+
+.bentoBig {
+    grid-column: span 2;
+}
+
+.bentoSmall {
+    grid-column: span 1;
+}
+
+.bentoCard {
+    position: relative;
+    background: var(--dark-3);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--t-slow) var(--ease);
+    display: flex;
+    flex-direction: column;
+}
+
+.bentoCard:hover {
+    border-color: rgba(0, 87, 255, 0.38);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 87, 255, 0.18);
+}
+
+.bentoVisual {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg,
+            hsl(calc(var(--hue, 210) * 1deg), 65%, 24%) 0%,
+            hsl(calc(var(--hue, 210) * 1deg + 20deg), 70%, 37%) 100%);
+    overflow: hidden;
+}
+
+.bentoBig .bentoVisual {
+    aspect-ratio: 2/1;
+}
+
+.bentoSvg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bentoOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 87, 255, 0.18) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity var(--t-base);
+}
+
+.bentoCard:hover .bentoOverlay {
+    opacity: 1;
+}
+
+.bentoCat {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(8px);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--r-full);
+}
+
+.bentoYear {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+}
+
+.bentoInfo {
+    padding: 1.75rem 2rem 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.bentoTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.875rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin-bottom: 0.625rem;
+}
+
+.bentoExcerpt {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.48);
+    line-height: 1.65;
+    flex: 1;
+}
+
+.bentoLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--blue-100);
+    margin-top: 1.5rem;
+    transition: gap var(--t-fast), color var(--t-fast);
+}
+
+.bentoCard:hover .bentoLink {
+    gap: 0.875rem;
+    color: #4A8FFF;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   CTA BAND — light mode, editorial split layout
+──────────────────────────────────────────────────────────────── */
+.ctaBand {
+    position: relative;
+    background: var(--bg);
+    padding: clamp(5rem, 10vw, 9rem) var(--pad-x) clamp(4rem, 8vw, 7rem);
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+}
+
+/* Fine dot grid */
+.ctaGrid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(0, 87, 255, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.6;
+}
+
+/* Ruled horizontal lines */
+.ctaRuledLines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ctaRuledLine {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--border);
+    opacity: 0.5;
+    top: calc(16.66% * (var(--li) + 1));
+}
+
+/* Large off-center circle */
+.ctaCircleAccent {
+    position: absolute;
+    right: -180px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 560px;
+    height: 560px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 87, 255, 0.1);
+    pointer-events: none;
+}
+
+/* Blue ink blob in corner */
+.ctaInkBlob {
+    position: absolute;
+    left: -60px;
+    bottom: -80px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 87, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ── Two-column inner layout ── */
+.ctaInner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 7rem);
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ── Left: editorial heading ── */
+.ctaLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ctaEyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+}
+
+.ctaEyebrowDash {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--blue);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.ctaHeading {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.92;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 0.04em;
+}
+
+.ctaHeadLine1 {
+    font-weight: 300;
+    color: var(--ink-2);
+}
+
+.ctaHeadLine2 {
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.ctaHeadLine3 {
+    font-weight: 900;
+    color: var(--blue);
+}
+
+.ctaUnderline {
+    position: relative;
+    display: inline-block;
+}
+
+.ctaUnderline::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 3px;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+/* Tag row */
+.ctaTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.ctaTag {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    padding: 0.3rem 0.9rem;
+    border: 1.5px solid var(--blue-100);
+    border-radius: var(--r-full);
+    background: var(--blue-50);
+}
+
+/* ── Right: body copy + actions ── */
+.ctaRight {
+    position: relative;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Giant quote mark */
+.ctaQuoteAccent {
+    position: absolute;
+    top: -1.5rem;
+    left: -0.5rem;
+    font-family: var(--font-display);
+    font-size: 10rem;
+    font-weight: 900;
+    color: var(--blue);
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.ctaSub {
+    font-size: clamp(1rem, 1.7vw, 1.18rem);
+    color: var(--ink-2);
+    line-height: 1.8;
+    max-width: 520px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Stat row */
+.ctaStatRow {
+    display: flex;
+    gap: 2.5rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.ctaStat {
+    display: flex;
+    flex-direction: column;
+}
+
+.ctaStatNum {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--blue);
+    line-height: 1;
+}
+
+.ctaStatLabel {
+    font-size: var(--fs-xs);
+    color: var(--ink-3);
+    margin-top: 0.2rem;
+    letter-spacing: 0.04em;
+}
+
+/* CTA buttons */
+.ctaActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ctaBtnPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.1rem 2.25rem;
+    background: var(--blue);
+    color: white;
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    border: none;
+    border-radius: var(--r-full);
+    transition: all var(--t-base);
+    letter-spacing: 0.01em;
+}
+
+.ctaBtnPrimary:hover {
+    background: var(--blue-deep);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-blue);
+}
+
+.ctaBtnArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-size: 0.6rem;
+    transition: transform var(--t-base);
+    flex-shrink: 0;
+}
+
+.ctaBtnPrimary:hover .ctaBtnArrow {
+    transform: translateX(4px);
+}
+
+.ctaBtnSecondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.1rem 2.25rem;
+    background: transparent;
+    color: var(--blue);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-weight: 600;
+    border: 1.5px solid var(--blue-100);
+    border-radius: var(--r-full);
+    transition: all var(--t-base);
+}
+
+.ctaBtnSecondary:hover {
+    background: var(--blue-mist);
+    border-color: var(--blue);
+    color: var(--blue-deep);
+}
+
+/* ── Bottom rule ── */
+.ctaBottomRule {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: clamp(3rem, 5vw, 5rem) auto 0;
+}
+
+.ctaRuleDot {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--blue-100);
+    flex-shrink: 0;
+}
+
+.ctaRuleLine {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.ctaRuleLabel {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    white-space: nowrap;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   NEWSLETTER
+──────────────────────────────────────────────────────────────── */
+.newsletter {
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem var(--pad-x);
+}
+
+.newsletterInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.newsletterText {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.newsletterDot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: var(--blue);
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: dotBlink 2.2s ease-in-out infinite;
+}
+
+@keyframes dotBlink {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(0, 87, 255, 0.4);
+    }
+
+    50% {
+        opacity: 0.7;
+        box-shadow: 0 0 0 8px rgba(0, 87, 255, 0);
+    }
+}
+
+.newsletterText h3 {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+}
+
+.newsletterText p {
+    font-size: var(--fs-sm);
+    color: var(--ink-3);
+}
+
+.newsletterForm {
+    display: flex;
+    gap: 0.625rem;
+    flex: 1;
+    max-width: 460px;
+}
+
+.newsletterForm input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--ink);
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--r-full);
+    outline: none;
+    min-width: 0;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.newsletterForm input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);
+}
+
+.newsletterForm input::placeholder {
+    color: var(--ink-4);
+}
+
+.newsletterForm button {
+    padding: 0.875rem 1.5rem;
+    background: var(--blue);
+    color: white;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    border: none;
+    border-radius: var(--r-full);
+    transition: all var(--t-base);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.newsletterForm button:hover {
+    background: var(--blue-deep);
+    box-shadow: var(--shadow-blue);
+    transform: translateY(-1px);
+}
+
+
+
+.stackWrap{
+    height: 60%;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   RESPONSIVE
+──────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 6rem;
+    }
+
+    .stackWrap {
+        display: none;
+        justify-content: center;
+        padding: 0 0 4rem;
+    }
+
+    .stackSvg {
+        max-width: 420px;
+    }
+
+    .bgGlow {
+        right: 50%;
+        transform: translate(50%, -50%);
+        opacity: 0.5;
+    }
+
+    .bentoGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bentoBig {
+        grid-column: span 2;
+    }
+
+    .bentoSmall {
+        grid-column: span 1;
+    }
+
+    .ctaInner {
+        grid-template-columns: 1fr;
+    }
+
+    .ctaCircleAccent {
+        display: none;
+    }
+
+    .ctaHeading {
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+}
+
+@media (max-width: 900px) {
+    .serviceCard {
+        grid-template-columns: 80px 1fr auto;
+        gap: 1.5rem;
+    }
+
+    .heroStats {
+        gap: 1.75rem;
+    }
+
+    .ctaStatRow {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .statItem:nth-child(2) {
+        border-right: none;
+    }
+
+    .statItem:nth-child(3) {
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        border-right: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .statItem:nth-child(4) {
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        border-right: none;
+    }
+
+    .bentoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .bentoBig, .bentoSmall {
+        grid-column: span 1;
+    }
+
+    .heroTagStrip {
+        display: none;
+    }
+
+    .ctaRuledLines {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .heroContent {
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+    }
+
+    .heroHeading {
+        grid-template-columns: 1fr;
+    }
+
+    .heroActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btnBlue, .btnGhost {
+        justify-content: center;
+    }
+
+    .heroStats {
+        gap: 1.5rem;
+    }
+
+    .serviceCard {
+        grid-template-columns: 60px 1fr auto;
+        gap: 1rem;
+    }
+
+    .newsletterInner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .newsletterForm {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .newsletterForm button {
+        width: 100%;
+    }
+
+    .ctaActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ctaBtnPrimary, .ctaBtnSecondary {
+        justify-content: center;
+    }
+
+    .ctaBottomRule {
+        display: none;
+    }
+}

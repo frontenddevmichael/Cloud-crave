@@ -1,0 +1,1060 @@
+/* ============================================================
+   CONTACT PAGE — CloudCrave Solutions
+   Mission Control / Signal Transmission aesthetic
+   ============================================================ */
+
+.page {
+    padding-top: 5rem;
+    overflow-x: hidden;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-family: 'SF Mono', 'Fira Mono', 'Courier New', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+    padding: 0.28rem 0.75rem;
+    border: 1px solid var(--teal);
+    border-radius: 999px;
+    opacity: 0.85;
+}
+
+/* ════════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════════ */
+.header {
+    position: relative;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Signal SVG — full bleed behind content */
+.heroSvg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Node aura pulse */
+.nodeAura {
+    animation: auraBreath 4s ease-in-out infinite;
+    transform-origin: 120px 140px;
+}
+
+.nodeAura2 {
+    animation: auraBreath 4s ease-in-out infinite 1s;
+    transform-origin: 780px 140px;
+}
+
+@keyframes auraBreath {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+/* Spinning orbit rings */
+.spinRing {
+    animation: spinCW 20s linear infinite;
+    transform-origin: 120px 140px;
+}
+
+.spinRingRev {
+    animation: spinCCW 15s linear infinite;
+    transform-origin: 780px 140px;
+}
+
+@keyframes spinCW {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinCCW {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.headerContent {
+    position: relative;
+    z-index: 2;
+    padding: clamp(3.5rem, 6vw, 5rem) var(--pad-x) 1.5rem;
+    max-width: 600px;
+}
+
+.pageTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.0;
+    color: var(--ink);
+    margin: 0.5rem 0 1.25rem;
+}
+
+.pageTitleAccent {
+    font-style: italic;
+    color: var(--teal);
+    display: block;
+}
+
+.pageSubtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--ink-2);
+    max-width: 440px;
+    line-height: 1.72;
+}
+
+/* Stats strip along bottom of hero */
+.heroStats {
+    display: flex;
+    align-items: stretch;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.heroStat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1.25rem 2.5rem;
+    border-right: 1px solid var(--border);
+    transition: background 0.18s;
+}
+
+.heroStat:last-child {
+    border-right: none;
+}
+
+.heroStat:hover {
+    background: var(--bg);
+}
+
+.heroStatNum {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--teal);
+    line-height: 1;
+}
+
+.heroStatLabel {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
+/* ════════════════════════════════════════════════
+   CONTENT GRID
+════════════════════════════════════════════════ */
+.content {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 2rem;
+    padding: var(--pad-section) var(--pad-x);
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* ════════════════════════════════════════════════
+   SHARED CARD BASE
+════════════════════════════════════════════════ */
+.formCard,
+.infoCard {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: 2.5rem;
+}
+
+.infoCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+/* ════════════════════════════════════════════════
+   STEP INDICATOR
+════════════════════════════════════════════════ */
+.stepIndicator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    gap: 0;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.step:last-child {
+    flex: none;
+}
+
+.stepDot {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--bg-2);
+    border: 1.5px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--ink-3);
+    flex-shrink: 0;
+    transition: all 0.22s;
+}
+
+.stepActive .stepDot {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg);
+}
+
+.stepDone .stepDot {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: white;
+}
+
+.stepLabel {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    white-space: nowrap;
+    transition: color 0.22s;
+}
+
+.stepActive .stepLabel,
+.stepDone .stepLabel {
+    color: var(--ink);
+}
+
+/* Connecting line between steps */
+.stepLine {
+    flex: 1;
+    height: 1.5px;
+    background: var(--border);
+    margin: 0 0.5rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1px;
+}
+
+.stepLineFill {
+    position: absolute;
+    inset: 0;
+    background: var(--teal);
+    transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 1px;
+}
+
+/* ════════════════════════════════════════════════
+   FORM
+════════════════════════════════════════════════ */
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step pane slide in */
+.stepPane {
+    display: flex;
+    flex-direction: column;
+    gap: 1.375rem;
+    animation: paneIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes paneIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.stepPaneHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Large step number watermark */
+.stepPaneNum {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    color: var(--ink);
+    opacity: 0.07;
+    line-height: 1;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.cardHeading {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin: 0 0 0.25rem;
+    line-height: 1.1;
+}
+
+.stepPaneDesc {
+    font-size: var(--fs-sm);
+    color: var(--ink-3);
+    margin: 0;
+}
+
+/* Field */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.optional {
+    font-weight: 400;
+    color: var(--ink-3);
+    font-size: var(--fs-xs);
+    margin-left: 0.25rem;
+}
+
+/* Input */
+.inputWrap {
+    position: relative;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-3);
+    font-size: 0.85rem;
+    pointer-events: none;
+    transition: color 0.15s;
+    z-index: 2;
+}
+
+.inputWrap:focus-within .inputIcon {
+    color: var(--teal);
+}
+
+.inputWrap input {
+    width: 100%;
+    padding: 0.9rem 1rem 0.9rem 2.75rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--ink);
+    background: var(--bg-2);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--r-md);
+    outline: none;
+    transition: all 0.15s;
+}
+
+.inputWrap input:focus {
+    background: var(--bg);
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(0, 184, 164, 0.1);
+}
+
+.inputWrap input::placeholder {
+    color: var(--ink-3);
+}
+
+/* Select */
+.selectWrap {
+    position: relative;
+}
+
+.selectWrap select {
+    width: 100%;
+    padding: 0.9rem 2.5rem 0.9rem 1rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--ink);
+    background: var(--bg-2);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--r-md);
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%238A8A82' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.selectWrap select:focus {
+    background-color: var(--bg);
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(0, 184, 164, 0.1);
+}
+
+/* Textarea */
+.textareaWrap {
+    position: relative;
+}
+
+.textareaWrap textarea {
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--ink);
+    background: var(--bg-2);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--r-md);
+    outline: none;
+    resize: none;
+    min-height: 140px;
+    line-height: 1.65;
+    transition: all 0.15s;
+}
+
+.textareaWrap textarea:focus {
+    background: var(--bg);
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(0, 184, 164, 0.1);
+}
+
+.textareaWrap textarea::placeholder {
+    color: var(--ink-3);
+}
+
+.charCount {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 1rem;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    pointer-events: none;
+    background: var(--bg-2);
+    padding: 0.1rem 0.375rem;
+    border-radius: 4px;
+    transition: background 0.15s;
+}
+
+.textareaWrap:focus-within .charCount {
+    background: var(--bg);
+}
+
+.charWarn {
+    color: #c05c00;
+}
+
+/* Error states */
+.fieldError .inputWrap input,
+.fieldError .textareaWrap textarea {
+    border-color: #C5392B;
+}
+
+.fieldError .inputWrap input:focus,
+.fieldError .textareaWrap textarea:focus {
+    box-shadow: 0 0 0 3px rgba(197, 57, 43, 0.1);
+}
+
+.errorMsg {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: var(--fs-xs);
+    color: #C5392B;
+    font-weight: 500;
+}
+
+.submitError {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1rem;
+    background: #FFF5F4;
+    border: 1px solid #F9C4BE;
+    border-radius: var(--r-md);
+    font-size: var(--fs-sm);
+    color: #C5392B;
+    font-weight: 500;
+}
+
+/* Form summary (step 3 recap) */
+.formSummary {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.summaryRow {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+.summaryKey {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    min-width: 48px;
+    flex-shrink: 0;
+}
+
+.summaryVal {
+    font-size: var(--fs-sm);
+    color: var(--ink);
+    font-weight: 500;
+}
+
+/* Navigation buttons */
+.stepNavRow {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.nextBtn,
+.submitBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 2rem;
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-weight: 600;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--r-full);
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.nextBtn:hover,
+.submitBtn:hover:not(:disabled) {
+    background: var(--white);
+    color: var(--ink);
+    transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.95rem 1.5rem;
+    background: transparent;
+    color: var(--ink-2);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-weight: 500;
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--r-full);
+    cursor: pointer;
+    transition: all 0.18s;
+    flex-shrink: 0;
+}
+
+.backBtn:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+.btnArrow {
+    font-size: 0.7rem;
+    transition: transform 0.18s;
+}
+
+.nextBtn:hover .btnArrow,
+.submitBtn:hover:not(:disabled) .btnArrow {
+    transform: translateX(4px);
+}
+
+/* Spinner */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.privacyNote {
+    font-size: var(--fs-xs);
+    color: var(--ink-3);
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 0.25rem;
+}
+
+/* ════════════════════════════════════════════════
+   SUCCESS STATE
+════════════════════════════════════════════════ */
+.successState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    gap: 1.25rem;
+    animation: paneIn 0.4s ease-out both;
+}
+
+.successSvgWrap {
+    position: relative;
+}
+
+/* SVG check draw animation */
+.successCheck {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: drawCheck 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@keyframes drawCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Ripple rings */
+.successRing1 {
+    animation: ringExpand 1.8s ease-out 0.2s infinite;
+    transform-origin: 60px 60px;
+}
+
+.successRing2 {
+    animation: ringExpand 1.8s ease-out 0.6s infinite;
+    transform-origin: 60px 60px;
+}
+
+@keyframes ringExpand {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+.successHeading {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.successDesc {
+    font-size: var(--fs-md);
+    color: var(--ink-2);
+    max-width: 360px;
+    line-height: 1.65;
+}
+
+.successMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: rgba(0, 201, 167, 0.08);
+    border: 1px solid rgba(0, 201, 167, 0.2);
+    border-radius: 999px;
+}
+
+.resetBtn {
+    background: transparent;
+    color: var(--teal);
+    border: 1.5px solid rgba(0, 201, 167, 0.35);
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--r-full);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+
+.resetBtn:hover {
+    background: rgba(0, 201, 167, 0.08);
+    border-color: var(--teal);
+}
+
+/* ════════════════════════════════════════════════
+   INFO CARD — CLOCK
+════════════════════════════════════════════════ */
+.clockRow {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+}
+
+.statusDot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.statusOpen {
+    background: #22C55E;
+    animation: dotBlink 2s ease-in-out infinite;
+}
+
+.statusClosed {
+    background: var(--ink-3);
+}
+
+@keyframes dotBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.clockText {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-2);
+    flex: 1;
+}
+
+.clockText strong {
+    color: var(--ink);
+}
+
+.statusLabel {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+}
+
+.open {
+    background: rgba(34, 197, 94, 0.12);
+    color: #15803d;
+}
+
+.closed {
+    background: var(--bg-2);
+    color: var(--ink-3);
+}
+
+/* ════════════════════════════════════════════════
+   NIGERIA MAP CARD
+════════════════════════════════════════════════ */
+.mapCard {
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--bg-2);
+}
+
+.nigeriaMap {
+    width: 100%;
+    height: 180px;
+    display: block;
+}
+
+.lagosPulse {
+    animation: lagosRing 2.2s ease-out infinite;
+    transform-origin: 75px 118px;
+}
+
+.lagosPulse2 {
+    animation: lagosRing 2.2s ease-out infinite 0.65s;
+    transform-origin: 75px 118px;
+}
+
+@keyframes lagosRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+.mapCardLabel {
+    padding: 0.875rem 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.mapCardLabel strong {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+.mapCardLabel span {
+    font-size: var(--fs-xs);
+    color: var(--ink-3);
+}
+
+/* ════════════════════════════════════════════════
+   CONTACT INFO
+════════════════════════════════════════════════ */
+.infoGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.infoItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+}
+
+.infoIconWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 201, 167, 0.1);
+    border-radius: var(--r-md);
+    color: var(--teal);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.infoLabel {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 0.3rem;
+    display: block;
+}
+
+.infoValue {
+    font-size: var(--fs-sm);
+    color: var(--ink);
+    line-height: 1.55;
+    text-decoration: none;
+    display: block;
+    transition: color 0.15s;
+}
+
+a.infoValue:hover {
+    color: var(--teal);
+}
+
+/* Hours */
+.hours {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.hoursGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hoursRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hoursDay {
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+}
+
+.hoursTime {
+    font-family: 'SF Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-3);
+}
+
+/* Socials */
+.socialRow {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    color: var(--ink-3);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.18s;
+}
+
+.socialIcon:hover {
+    background: rgba(0, 201, 167, 0.1);
+    border-color: rgba(0, 201, 167, 0.3);
+    color: var(--teal);
+    transform: translateY(-2px);
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .infoCard {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .mapCard {
+        grid-column: 1 / -1;
+    }
+
+    .hours {
+        border: none;
+        padding: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .heroStats {
+        flex-wrap: wrap;
+    }
+
+    .heroStat {
+        flex: 1;
+        min-width: 33%;
+        padding: 1rem 1.25rem;
+    }
+
+    .formCard, .infoCard {
+        padding: 1.75rem 1.5rem;
+        border-radius: var(--r-lg);
+    }
+
+    .infoCard {
+        grid-template-columns: 1fr;
+    }
+
+    .stepLabel {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .content {
+        padding: 2rem 1.25rem;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .nodeAura, .nodeAura2, .spinRing, .spinRingRev,
+    .successRing1, .successRing2, .lagosPulse, .lagosPulse2,
+    .statusOpen, .dotBlink {
+        animation: none;
+    }
+}
