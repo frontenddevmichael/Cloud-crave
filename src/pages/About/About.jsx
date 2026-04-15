@@ -581,7 +581,7 @@ export default function About() {
                 <div className={styles.storyInner}>
                     <div className={styles.storyLeft}>
                         <p className={styles.sectionLabel}>Our story</p>
-                        <h2 className={styles.sectionHeading}>From a small studio<br />to a full-scale tech firm.</h2>
+                        <h2 className={styles.sectionHeading}>About us</h2>
 
                         <p>
                             CloudCrave started in 2009 as a two-person web design studio in Lekki, Lagos.

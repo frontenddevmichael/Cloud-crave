@@ -79,13 +79,13 @@
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--teal-deep);
+    color: var(--blue-vivid);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1.25rem;
     position: absolute;
-right: 0;
+    right: 0;
 }
 
 .sectionLabel::before {
@@ -93,7 +93,7 @@ right: 0;
     display: inline-block;
     width: 18px;
     height: 1.5px;
-    background: var(--teal);
+    background: var(--blue);
     flex-shrink: 0;
 }
 
@@ -210,13 +210,6 @@ right: 0;
     margin-bottom: 0.25rem;
 }
 
-.heroMetaLabel {
-    font-family: var(--ff-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
-}
 
 /* Bottom ticker bar */
 .heroTicker {
@@ -987,7 +980,11 @@ right: 0;
     .storyInner {
         grid-template-columns: 1fr;
         gap: 3rem;
+
     }
+
+
+
 
     .storyRight {
         position: static;
@@ -1000,6 +997,16 @@ right: 0;
     .heroMeta {
         gap: 1.25rem;
     }
+
+
+    .story::before {
+        top: 1rem;
+        right: var(--pad-x);
+        font-size: clamp(4rem, 10vw, 10rem);
+        display: none;
+    }
+
+
 }
 
 /* ── Timeline swap at 700px ── */
@@ -1101,6 +1108,6 @@ right: 0;
 }
 
 
-svg{
+svg {
     overflow: visible;
 }
